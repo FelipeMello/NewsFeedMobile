@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="../../dist/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="Framework7-Icons/css/framework7-icons.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div class="login-screen modal-in">
+      <!-- Login Screen Content -->
+
+      <div class="page-content login-screen-content">
+
+        <!-- Title -->
+        <div class="login-screen-title" style="color: #007aff;">World News!</div>
+
+        <div class="content-block">
+            <!-- IMG -->
+          <div class="content-block-inner">
+            <!-- My Img Goes here -->
+            <img src="img/news.jpg" class="lazy" width="100%" height="auto"></div>
+          </div>
+
+          <!-- FACEBOOK BUTTON -->
+          <div class="content-block">
+            <div class="content-block-inner" >
+            <!-- Faceboook Button -->
+            <script type="text/javascript" src="js/facebook.js"></script>
+            <form>
+             <div id="fb-root" style="text-align: center;">
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>  
+              </div>
+            </form>
+          </div>
+          <!-- STATUS -->
+            <div class="content-block-inner">
+                <div style="text-align: center;" id="status">to continue</div>
+            </div>
+                      
+          </div>
+    
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Login Page finishes here -->
+
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        
+          <h1 style="text-align:center; text-decoration: underline;" class="ul-title">News</h1>
+
+          <ul style="text-align:left; list-style:none;">
+
+            
+            <li id="business" class="li-margin"><a href="#"><h2 style="color: #6d6d72"><i class="f7-icons">briefcase</i>
+            Business</h2></a></li>
+
+            <li id="financial" class="li-margin"><a href="#"><h2 style="color: #6d6d72">
+              <i class="f7-icons">graph_square</i>
+            Financial</h2></a></li>
+
+            <li id="sports" class="li-margin"><a href="#"><h2 style="color: #6d6d72"><i class="f7-icons">stopwatch</i>
+            Sports</h1></h2></a></li>
+
+          </ul>    
+     </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+          <div id="userInfo" style="text-align: center">
+            <!-- Load img 
+                Load Name-->
+          </div>
+          <form>
+             <div id="fb-root" style="text-align: center;">
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>  
+             </div>
+          </form>
+      </div>
+
+      </div>
+    </div>
+    <!-- Views, and they are tabs-->
+    <!-- We need to set "toolbar-through" class on it to keep space for our tab bar-->
+    <div class="views tabs toolbar-through">
+      <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+
+      <!-- new view -->
+      <div id="view-1" class="view view-main tab active">
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                <!-- NavBar here with the page name
+                and a menu -->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <!-- This Opens the side bar for the news category -->
+                  <div class="left"><a href="#" class="open-panel"> <i class="f7-icons">menu</i></a></div>
+                  <div class="center" style="color: #007aff; letter-spacing: 4px;">World News!</div>
+                  <!-- This open the right bar users profile -->
+                  <div class="right"><a href="#" data-panel="right" class="open-panel"> Profile </a></div>
+                </div>
+                
+              </div>
+              
+              <div class="content-block-title">
+                <!-- Greeting when the user logs in -->
+                <h2 id="welcome-user" style="text-align: center;"></h2>
+              </div>
+              <div id="sourceName"></div>
+              <div id="newsMain">
+                  <div id="newsBody"></div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second view (for second wrap)-->
+      <div id="view-2" class="view tab">
+        <!-- We can make with view with navigation, let's add Top Navbar-->
+        <!--TO-DO -->
+        <!-- LOAD THE TOP 10 NEWS FROM KYLES SERVER IN HERE -->
+        <div class="pages navbar-through">
+          <div data-page="index-2" class="page">
+            <div class="page-content">
+              <!-- nav Bar in Here -->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="center sliding">News Room</div>
+                </div>
+              </div>
+              <div class="content-block" id="newsFromTheServer">
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-5" class="view tab">
+        <!-- We can make with view with navigation, let's add Top Navbar-->
+        <!--TO-DO -->
+        <!-- LOAD THE TOP 10 NEWS FROM KYLES SERVER IN HERE -->
+        <div class="pages navbar-through">
+          <div data-page="index-2" class="page">
+            <div class="page-content">
+              <!-- nav Bar in Here -->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="center sliding">Authors</div>
+                </div>
+              </div>
+              <div class="content-block" id="authorsFromTheServer">
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div id="view-3" class="view tab">
+        <div class="pages">
+          <div data-page="index-3" class="page">
+            <div class="page-content">
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="center sliding">New Story
+                  </div>
+                </div>
+              </div> 
+              <form id="my-form" class="list-block store-data">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label"><b>Title</b></div>
+                        <div class="item-input">
+                          <input type="text" name="title" id="form-title" placeholder="Title of your story">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label"><b>Description</b></div>
+                        <div class="item-input">
+                          <textarea name="description" id="form-description" rows="10" cols="100" id="description">
+                          </textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label"><b>Date</b></div>
+                        <div class="item-input">
+                          <input type="text" readonly id="calendar-default" name="date" placeholder="Pick a date">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label"><b>Author:</b></div>
+                        <div class="item-input">
+                          <input type="text" name="author" id="form-author" placeholder="Author Name">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <p class="buttons-row">
+                <a href="#" id="form-cancel" class="button">Cancel</a>
+                <a href="#" id="submit-data" class="button form-to-data">Submit</a>
+              </p>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-4" class="view tab">
+        <div class="pages navbar-fixed">
+          <div data-page="index-4" class="page">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="center">JSON</div>
+              </div>
+            </div>
+            <div class="page-content">
+              <div id="testJSON"></div>
+              <div class="content-block" id="loadStringfy">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Tabbar-->
+      <div class="toolbar tabbar tabbar-labels">
+        
+        <div class="toolbar-inner">
+          
+          <a href="#" id="logout-label" class="tab-link">
+            <i class="f7-icons">logout</i>
+            <span class="tabbar-label">Log Out</span>
+          </a>
+
+          <a href="#view-1" class="tab-link active open-panel"> 
+            <i class="icon tabbar-demo-icon-1"></i>
+            <span class="tabbar-label">News</span>
+          </a>
+          <!-- panel panel-right panel-cover -->
+          <!-- 
+          <div class="right"><a href="#" data-panel="right" class="open-panel"> Profile </a></div> -->
+
+          <a href="#view-1" data-panel="right" class="tab-link open-panel"> 
+            <i class="f7-icons">person</i>
+            <span class="tabbar-label">Profile</span>
+          </a>
+
+          <a href="#view-2" class="tab-link">
+            <i class="icon tabbar-demo-icon-2"></i>
+            <span class="tabbar-label">News Room</span>
+          </a>
+           <a href="#view-5" class="tab-link">
+            <i class="f7-icons">persons</i>
+            <span class="tabbar-label">Authors</span>
+          </a>
+          
+          <a href="#view-3" class="tab-link">
+            <i class="f7-icons">compose</i>
+            <span class="tabbar-label">New Story</span>
+          </a>
+          <a href="#view-4" class="tab-link"> 
+            <i class="f7-icons">bolt</i>
+            <span class="tabbar-label">JSON</span>
+          </a>
+      </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="../../dist/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>
